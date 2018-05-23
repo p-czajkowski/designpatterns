@@ -21,19 +21,11 @@ public class Main {
         System.out.println("Podaj kwotę do obliczenia twojej konfiguracji: ");
         int carPrice = scanner.nextInt();
 
-        clientConfiguration(carPrice);
-
-        CarBuilder carBuilder = CarBuilder.builder()
-                .body(Body.ESTATE)
-                .color(Color.DESIRE_RED)
-                .engineCapacity(1400)
-                .enginePower(125)
-                .build();
-        System.out.println(carBuilder);
+        clientsConfigurationPrice(carPrice);
 
     }
 
-    public static void clientConfiguration(int carPrice){
+    public static void clientsConfigurationPrice(int carPrice){
         Car car = new Car(BigDecimal.valueOf(carPrice));
 
         Percent percentLeasing = new Leasing();
@@ -46,5 +38,15 @@ public class Main {
         System.out.println("Cena samochodu z odsetkami kredytu: " + car.calculatePrice(percentCredit));
         System.out.println("Odsetki kredytu: "
                 + car.calculatePrice(percentCredit).subtract(BigDecimal.valueOf(carPrice)) + "\n");
+    }
+
+    public static void clientCarConfiguration(){
+        CarBuilder carBuilder = CarBuilder.builder()
+                .body(Body.ESTATE)
+                .color(Color.DESIRE_RED)
+                .engineCapacity(1400)
+                .enginePower(125)
+                .build();
+        System.out.println(carBuilder);
     }
 }
