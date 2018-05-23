@@ -1,5 +1,8 @@
 package desingPattern;
 
+import desingPattern.builder.Body;
+import desingPattern.builder.CarBuilder;
+import desingPattern.builder.Color;
 import desingPattern.singleton.CarPrice;
 import desingPattern.strategy.Car;
 import desingPattern.strategy.Credit;
@@ -20,7 +23,13 @@ public class Main {
 
         clientConfiguration(carPrice);
 
-
+        CarBuilder carBuilder = CarBuilder.builder()
+                .body(Body.ESTATE)
+                .color(Color.DESIRE_RED)
+                .engineCapacity(1400)
+                .enginePower(125)
+                .build();
+        System.out.println(carBuilder);
 
     }
 
