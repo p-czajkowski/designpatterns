@@ -6,7 +6,7 @@ public class CarBuilder {
     private int engineCapacity;
     private int engintPower;
     private Body body;
-    private String naviSystem;
+    private boolean naviSystem;
 
     public CarBuilder(Builder builder) {
         this.color = builder.color;
@@ -32,18 +32,18 @@ public class CarBuilder {
         return body;
     }
 
-    public String getNaviSystem() {
+    public boolean getNaviSystem() {
         return naviSystem;
     }
 
     @Override
     public String toString() {
-        return "CarBuilder{" +
-                "color='" + color + '\'' +
-                ", engineCapacity=" + engineCapacity +
-                ", engintPower=" + engintPower +
-                ", body='" + body +
-                ", naviSystem='" + naviSystem + '\'' +
+        return "Konfiguracja samochodu {" +
+                "kolor = '" + color + '\'' +
+                ", pojemność silnika = '" + engineCapacity +
+                "', moc [KM] = " + engintPower +
+                "', wersja = '" + body +
+                ", system nagacji = '" + naviSystem + '\'' +
                 '}';
     }
 
@@ -57,7 +57,7 @@ public class CarBuilder {
         private int engineCapacity;
         private int engintPower;
         private Body body;
-        private String naviSystem;
+        private boolean naviSystem;
 
         private Builder() {}
 
@@ -78,6 +78,11 @@ public class CarBuilder {
 
         public Builder body(Body body){
             this.body = body;
+            return this;
+        }
+
+        public Builder naviSys(){
+            this.naviSystem = true;
             return this;
         }
 
